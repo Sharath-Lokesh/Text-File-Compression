@@ -18,11 +18,12 @@ void write_compressed_file(string encoded_string, string output_file_name, Node*
         return;
     }
     string tree_str;
+    
     queue<Node*> q;
     q.push(root);
+    
     while (!q.empty())
     {
-        
         Node* curr = q.front();
         q.pop();
         // check for leaf node
@@ -70,8 +71,11 @@ void write_compressed_file(string encoded_string, string output_file_name, Node*
     // Close the output file
     output_file.close();
 }
+
+// Compresses the input file and writes the compressed data to a file.
 void compress(string input_file_name, string output_file_name)
 {
+    // Read the input file
     ifstream input_file(input_file_name);
     if (!input_file)
     {
@@ -79,6 +83,7 @@ void compress(string input_file_name, string output_file_name)
         input_file.close();
         return;
     }
+    // Read the input string
     string input_string;
     while (input_file)
     {
@@ -93,7 +98,7 @@ void compress(string input_file_name, string output_file_name)
     print_code(root, "");
     // Encode the input string
     string encoded_string = encode(input_string, root);
-    // cout << "Encoded string: " << encoded_string << endl; 
+    // Write the compressed data to a file
     write_compressed_file(encoded_string, output_file_name, root);
 }
 
