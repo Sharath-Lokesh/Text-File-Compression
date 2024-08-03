@@ -1,9 +1,13 @@
+//
+// Author: Sharath Lokesh
+//
 #include <fstream>
 #include <bitset>
 #include "HuffmanCodingUtilities.h"
 
 using namespace std;
 
+// Writes the compressed data to a file.
 void write_compressed_file(string encoded_string, string output_file_name, Node* root)
 {
     ofstream output_file(output_file_name, ios::binary);
@@ -21,12 +25,14 @@ void write_compressed_file(string encoded_string, string output_file_name, Node*
         
         Node* curr = q.front();
         q.pop();
+        // check for leaf node
         if (curr->data != '\0')
         {
             tree_str += curr->data;
         }
         else
         {
+            // add $ for intermidiate nodes
             tree_str += '$';
             q.push(curr->left);
             q.push(curr->right);
