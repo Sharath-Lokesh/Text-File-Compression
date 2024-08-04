@@ -6,23 +6,26 @@
 // Main function
 int main()
 {
-    string input_string = "He colored deep space a soft yellow.\n\
-She learned that water bottles are no longer just to hold liquid, but they're also status symbols.\n\
-She was disgusted he couldn't tell the difference between lemonade and limeade.\n\
-He poured rocks in the dungeon of his mind.";
+    string input_string = "1. He colored deep space a soft yellow.\n\
+2. She learned that water bottles are no longer just to hold liquid, but they're also status symbols.\n\
+3. She was disgusted he couldn't tell the difference between lemonade and limeade.\n\
+4. He poured rocks in the dungeon of his mind.";
+
+    HuffmanCodingUtilities hf = HuffmanCodingUtilities();
 
     // Create the huffman tree
-    Node* root = create_huffman_tree(input_string);
+    Node* root = hf.create_huffman_tree(input_string);
     // Print the codes of each character
-    print_code(root, "");
+    cout << "Huffman Codes:"<<endl;
+    hf.print_code(root, "");
 
     // Encode the input string
-    string encoded_string = encode(input_string, root);
-    cout << "Encoded string: " << encoded_string << endl;
+    string encoded_string = hf.encode(input_string, root);
+    cout << "\nEncoded string: " << encoded_string << endl;
 
     // Decode the encoded string
-    string decoded_string = decode(encoded_string, root);
-    cout << "Decoded string:\n" << decoded_string << endl;
+    string decoded_string = hf.decode(encoded_string, root);
+    cout << "\nDecoded string:\n" << decoded_string << endl;
 
     return 0;
 }
