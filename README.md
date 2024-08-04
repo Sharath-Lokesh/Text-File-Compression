@@ -6,3 +6,10 @@ Huffman coding is a lossless data compression method that assigns variable-lengt
 
 - The the compressed binary file stores the Huffman tree structure as a string and the encoded data in binary format.
 - The decompression procedure involves recreting the Huffman tree from the tree string, follwed by decoding the encoded data.
+
+| File | Size |
+|---|---|
+| OriginalTextFile.txt | 1,492 bytes |
+| CompressedFile.bin | 968 bytes |
+| DeCompressedFile.txt | 1,496 bytes |
+
